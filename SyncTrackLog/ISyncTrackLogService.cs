@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -17,7 +18,8 @@ namespace SyncTrackLog
         string GetInterval();
 
         [WebInvoke(Method = "POST", UriTemplate = "/SendTrackLog", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
-        [OperationContract] string SendTrackLog(List<LocationLog> logs);
+        //[OperationContract] Stream SyncTracklog(Stream Tracklog);
+        [OperationContract] Stream SendTrackLog(Stream logs);
 
 
     }
